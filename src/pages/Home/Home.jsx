@@ -106,12 +106,20 @@ const Home = () => {
                 className="card-glass p-6 instructor-card rounded-xl text-center"
               >
                 <div className="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-6 overflow-hidden flex items-center justify-center">
-                  <span className="text-3xl font-bold text-white">
-                    {instructor.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </span>
+                  {instructor.image ? (
+                    <img
+                      src={instructor.image}
+                      alt={instructor.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-3xl font-bold text-white">
+                      {instructor.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{instructor.name}</h3>
                 <p className="text-primary mb-4">{instructor.role}</p>

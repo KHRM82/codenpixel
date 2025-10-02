@@ -15,12 +15,20 @@ const Instructors = () => {
           {instructors.map((instructor) => (
             <div key={instructor.id} className="card-glass p-6 rounded-xl">
               <div className="w-32 h-32 rounded-full bg-gray-700 mx-auto mb-6 overflow-hidden flex items-center justify-center">
-                <span className="text-4xl font-bold text-white">
-                  {instructor.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
+                {instructor.image ? (
+                  <img
+                    src={instructor.image}
+                    alt={instructor.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-4xl font-bold text-white">
+                    {instructor.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </span>
+                )}
               </div>
               <h3 className="text-xl font-bold text-center mb-2">
                 {instructor.name}
